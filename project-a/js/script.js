@@ -11,9 +11,9 @@ function setup() {
     let canvas = createCanvas(800, 500);
     canvas.parent("p5-canvas-container");
 
-    // Initialize the normal ants with sizes between 10 and 20
+    // Initialize the normal ants with sizes between 15 and 20
     for (let i = 0; i < 6; i++) {
-        createAnt(random(width), 0, random(15, 20), false); // Updated size range
+        createAnt(random(width), 0, random(15, 20), false);
     }
 }
 
@@ -23,12 +23,12 @@ function draw() {
 
     drawBorder()
 
-    // Draw the trails first (so they appear beneath the ants)
+    // Draw the trails 
     for (let i = 0; i < ants.length; i++) {
         drawTrail(i);
     }
 
-    // Draw explosion effects next
+    // Draw explosion effects 
     for (let i = explosions.length - 1; i >= 0; i--) {
         explosions[i].update();
         explosions[i].show();
@@ -54,14 +54,14 @@ function draw() {
     }
 
     // Display the number of ants left
-    fill(0); // Set text color to black
-    textSize(25); // Set text size
-    text(`Creatures Left: ${ants.filter(ant => !ant.exploded).length}`, 200, 20); // Display the count in the top left corner
+    fill(0);
+    textSize(25);
+    text(`Creatures Left: ${ants.filter(ant => !ant.exploded).length}`, 200, 20);
 
     // Update and display the timer
     timer += deltaTime; // Increment timer by the time passed since the last frame
     let seconds = Math.floor(timer / 1000); // Convert milliseconds to seconds
-    text(`Timer: ${seconds}`, 450, 20); // Display the timer below the creature count
+    text(`Timer: ${seconds}`, 450, 20); // Display the timer
 
     if (ants.every(ant => ant.exploded)) {
         gameEnded = true; // Set gameEnded to true
@@ -75,11 +75,10 @@ function drawBorder() {
     stroke(255);
     strokeWeight(5);
     fill("Moccasin");
-    let noiseScale = 0.1; // Scale for Perlin noise
-    let offset = 20; // Offset for the shape
+    let noiseScale = 0.1;
     let bendAmount = 30; // Amount of bending
-    let innerWidth = 700; // Width of the inner shape
-    let innerHeight = 400; // Height of the inner shape
+    let innerWidth = 700;
+    let innerHeight = 400;
     let x = width / 2;
     let y = height / 2;
 
@@ -113,8 +112,8 @@ function drawBorder() {
 }
 
 function displayEndScreen() {
-    fill(0); // Set text color to black
-    textSize(32); // Set larger text size
+    fill(0);
+    textSize(32);
     textAlign(CENTER, CENTER);
     text("Congratulations!", width / 2, height / 2 - 40); // Display congratulatory message
     text(`You killed them all in ${Math.floor(timer / 1000)} seconds!`, width / 2, height / 2); // Display time taken
@@ -139,24 +138,24 @@ function drawAnt(x, y, size, isExploded, direction) {
     translate(x, y);
     noStroke();
 
-    // Set color with glow effect
+    // Set colors
     let fillColor;
     if (isExploded) {
         fillColor = color(255, 0, 0); // Red for exploded ants
     } else {
-        fillColor = color(map(x, 0, width, 0, 100), map(y, 0, height, 50, 200), 255);
+        fillColor = color(map(x, 0, width, 0, 100), map(y, 0, height, 50, 200), 255); //For gradiant blue color
     }
     fill(fillColor);
 
     // Glow effect
-    drawingContext.shadowBlur = size * 0.1; // Adjusted shadow blur for a softer glow
+    drawingContext.shadowBlur = size * 0.2; // Adjusted shadow blur for a softer glow
     drawingContext.shadowColor = fillColor;
 
-    // Create a pulsing effect with a small amplitude
-    let pulseSize = size + sin(frameCount * 0.1) * 1; // Adjusted amplitude for pulsing (±1)
-    pulseSize = constrain(pulseSize, 10, 20); // Ensure the size stays within the desired range
+    // Create a pulsing effect 
+    let pulseSize = size + sin(frameCount * 0.1) * 1;
+    pulseSize = constrain(pulseSize, 10, 20); // Ensure the size stays within the range
 
-    // Draw the triangular arrow shape
+    // Draw the ant shape
     drawArrow(0, 0, pulseSize, direction);
     pop();
 }
@@ -172,7 +171,7 @@ function drawArrow(x, y, size, direction) {
     // Calculate the angle from the direction vector
     let angle = atan2(direction.y, direction.x);
 
-    // Rotate the arrow based on the angle of movement (tip forward)
+    // Rotate the arrow based on the angle of movement
     rotate(angle + HALF_PI); // Adjusted to make the tip point forward
 
     beginShape();
@@ -269,13 +268,13 @@ function explode(index) {
 
     setTimeout(() => {
         swarming = false;
-    }, 4000);
+    }, 4000); // Set time limit for swarming (4 seconds)
 }
 
 function spawnSmallAnts(x, y) {
-    // Spawn 3 smaller ants from the explosion
+    // Spawn 2 smaller ants from the explosion
     for (let i = 0; i < 2; i++) {
-        createAnt(x + random(-20, 20), y + random(-20, 20), random(4, 6), true); // Smaller size and mark as small ant
+        createAnt(x + random(-20, 20), y + random(-20, 20), random(4, 6), true);
     }
 }
 
@@ -283,7 +282,7 @@ function drawTrail(index) {
     for (let i = 0; i < ants[index].trails.length; i++) {
         fill(255, 40); // Set trail color with transparency
         noStroke();
-        circle(ants[index].trails[i].x, ants[index].trails[i].y, 5); // Draw trails as small circles
+        circle(ants[index].trails[i].x, ants[index].trails[i].y, 5);
     }
 }
 
