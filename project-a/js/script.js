@@ -8,17 +8,20 @@ let timer = 0;
 let gameEnded = false;
 
 function setup() {
-    createCanvas(800, 500);
+    let canvas = createCanvas(800, 500);
     canvas.parent("p5-canvas-container");
 
     // Initialize the normal ants with sizes between 10 and 20
     for (let i = 0; i < 6; i++) {
-        createAnt(random(width), 0, random(10, 20), false); // Updated size range
+        createAnt(random(width), 0, random(15, 20), false); // Updated size range
     }
 }
 
 function draw() {
-    background("Moccasin");
+
+    background("Peru");
+
+    drawBorder()
 
     // Draw the trails first (so they appear beneath the ants)
     for (let i = 0; i < ants.length; i++) {
@@ -52,19 +55,61 @@ function draw() {
 
     // Display the number of ants left
     fill(0); // Set text color to black
-    textSize(16); // Set text size
-    text(`Creatures Left: ${ants.filter(ant => !ant.exploded).length}`, 10, 20); // Display the count in the top left corner
+    textSize(25); // Set text size
+    text(`Creatures Left: ${ants.filter(ant => !ant.exploded).length}`, 200, 20); // Display the count in the top left corner
 
     // Update and display the timer
     timer += deltaTime; // Increment timer by the time passed since the last frame
     let seconds = Math.floor(timer / 1000); // Convert milliseconds to seconds
-    text(`Timer: ${seconds}`, 10, 40); // Display the timer below the creature count
+    text(`Timer: ${seconds}`, 450, 20); // Display the timer below the creature count
 
     if (ants.every(ant => ant.exploded)) {
         gameEnded = true; // Set gameEnded to true
         noLoop(); // Stop the draw loop
         displayEndScreen(); // Call the end screen display function
     }
+}
+
+function drawBorder() {
+
+    stroke(255);
+    strokeWeight(5);
+    fill("Moccasin");
+    let noiseScale = 0.1; // Scale for Perlin noise
+    let offset = 20; // Offset for the shape
+    let bendAmount = 30; // Amount of bending
+    let innerWidth = 700; // Width of the inner shape
+    let innerHeight = 400; // Height of the inner shape
+    let x = width / 2;
+    let y = height / 2;
+
+    beginShape();
+
+    // Top edge
+    for (let i = -innerWidth / 2; i < innerWidth / 2; i += 5) {
+        let yOffset = map(noise(i * noiseScale), 0, 1, -bendAmount, bendAmount);
+        vertex(x + i, y - innerHeight / 2 + yOffset);
+    }
+
+    // Right edge
+    for (let i = -innerHeight / 2; i < innerHeight / 2; i += 5) {
+        let xOffset = map(noise(i * noiseScale + 100), 0, 1, -bendAmount, bendAmount);
+        vertex(x + innerWidth / 2 + xOffset, y + i);
+    }
+
+    // Bottom edge
+    for (let i = innerWidth / 2; i > -innerWidth / 2; i -= 5) {
+        let yOffset = map(noise(i * noiseScale + 200), 0, 1, -bendAmount, bendAmount);
+        vertex(x + i, y + innerHeight / 2 + yOffset);
+    }
+
+    // Left edge
+    for (let i = innerHeight / 2; i > -innerHeight / 2; i -= 5) {
+        let xOffset = map(noise(i * noiseScale + 300), 0, 1, -bendAmount, bendAmount);
+        vertex(x - innerWidth / 2 + xOffset, y + i);
+    }
+
+    endShape(CLOSE);
 }
 
 function displayEndScreen() {
@@ -158,11 +203,16 @@ function move(i) {
     // Update the direction based on movement
     ants[i].direction = createVector(ants[i].speedX, ants[i].speedY).normalize();
 
-    // Wrap ants around canvas
-    if (ants[i].x < 0) ants[i].x = width;
-    if (ants[i].x > width) ants[i].x = 0;
-    if (ants[i].y < 0) ants[i].y = 0;
-    if (ants[i].y > height) ants[i].y = 0;
+    // Restrict ants to the inner border
+    let innerBorderX1 = 55; // Left inner border
+    let innerBorderX2 = width - 55; // Right inner border
+    let innerBorderY1 = 55; // Top inner border
+    let innerBorderY2 = height - 55; // Bottom inner border
+
+    if (ants[i].x < innerBorderX1) ants[i].x = innerBorderX2;
+    if (ants[i].x > innerBorderX2) ants[i].x = innerBorderX1;
+    if (ants[i].y < innerBorderY1) ants[i].y = innerBorderY1;
+    if (ants[i].y > innerBorderY2) ants[i].y = innerBorderY1;
 }
 
 function swarmTowards(i) {
@@ -225,7 +275,7 @@ function explode(index) {
 function spawnSmallAnts(x, y) {
     // Spawn 3 smaller ants from the explosion
     for (let i = 0; i < 2; i++) {
-        createAnt(x + random(-20, 20), y + random(-20, 20), random(3, 7), true); // Smaller size and mark as small ant
+        createAnt(x + random(-20, 20), y + random(-20, 20), random(4, 6), true); // Smaller size and mark as small ant
     }
 }
 
