@@ -9,6 +9,7 @@ let gameEnded = false;
 
 function setup() {
     createCanvas(800, 500);
+    canvas.parent("p5-canvas-container");
 
     // Initialize the normal ants with sizes between 10 and 20
     for (let i = 0; i < 6; i++) {
