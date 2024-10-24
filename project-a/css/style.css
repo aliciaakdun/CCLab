@@ -1,7 +1,7 @@
 /* CCLab CSS template project A */
 body {
-    background-color: white;
-    color: DimGray;
+    background-color: rgb(23, 19, 15);
+    color: rgb(181, 181, 181);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
     line-height: 1.5em;
@@ -28,15 +28,15 @@ body {
 }
 
 .black {
-    color: black;
+    color: rgb(248, 223, 161);
 }
 
 .red {
-    color: DeepPink;
+    color: rgb(255, 20, 55);
 }
 
 .green {
-    color: LightSeaGreen;
+    color: rgb(32, 129, 178);
 }
 
 .yellow {
