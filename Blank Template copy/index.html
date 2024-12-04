@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+
+  <title>Reflective Stages</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="lib/p5.js"></script>
+  <script src="lib/p5.sound.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="title-container">
+      <h1>Reflective Stages</h1>
+    </div>
+
+    <div id="p5-canvas-container">
+      <!-- p5 canvas will be appended here -->
+    </div>
+
+    <div class="stages-container">
+      <div class="link stage" id="stage1">
+        <a href="index-q1.html" onclick="revealNextStage()">Stage 1</a>
+      </div>
+      <div class="link stage" id="stage2">
+        <a href="#" onclick="revealNextStage()">Stage 2</a>
+      </div>
+      <div class="link stage" id="stage3">
+        <a href="#" onclick="revealNextStage()">Stage 3</a>
+      </div>
+      <div class="link stage" id="stage4">
+        <a href="#" onclick="revealNextStage()">Stage 4</a>
+      </div>
+    </div>
+
+    <div class="prompt-container" id="prompt-container">
+      <p id="prompt-text"></p>
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

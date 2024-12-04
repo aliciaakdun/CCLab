@@ -1,0 +1,127 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+canvas {
+  display: block;
+}
+
+/* tags */
+/* class */
+/* ID */
+
+.box {
+  /* background-color: pink; */
+
+  width: 400px;
+  height: 200px;
+
+  margin: 30px 10px 20px 50px;
+  /* topbottom leftright (for 2 arguments)*/
+  /* top right down left (for 4 arguments)*/
+
+  padding: 30px 50px;
+
+  border: 5px dashed black;
+
+  position: fixed;
+  right: 20px;
+  top: 50px;
+}
+
+.hi {
+  background-color: aliceblue;
+  width: 20px;
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+.more-div {
+  /* background-color: rgb(209, 187, 230); */
+  width: 60px;
+  height: 100px;
+  border: 2px dashed black;
+  position: absolute;
+  left: 15%;
+  bottom: 30px;
+}
+
+.div2 {
+  /* background-color: rgb(209, 187, 230); */
+  width: 60px;
+  height: 100px;
+  border: 2px dashed black;
+  position: absolute;
+  left: 30%;
+  bottom: 30px;
+}
+
+.div3 {
+  /* background-color: rgb(209, 187, 230); */
+  width: 60px;
+  height: 100px;
+  border: 2px dashed black;
+  position: absolute;
+  right: 30%;
+  bottom: 30px;
+}
+
+.div4 {
+  /* background-color: rgb(209, 187, 230); */
+  width: 60px;
+  height: 100px;
+  border: 2px dashed black;
+  position: absolute;
+  right: 15%;
+  bottom: 30px;
+}
+
+.wrapper {
+
+  margin: 20px;
+  max-width: 500px;
+  height: 500px;
+
+  /* display: none; */
+
+}
+
+.wrapper:hover {
+  visibility: hidden;
+}
+
+h1 {
+  background-color: greenyellow;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: sans-serif;
+  margin-bottom: 5px;
+}
+
+span {
+  background-color: cyan;
+  font-weight: bold;
+}
+
+.font-code {
+  font-family: monospace;
+}
+
+#purple {
+  color: purple;
+}

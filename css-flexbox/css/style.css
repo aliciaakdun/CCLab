@@ -1,0 +1,85 @@
+/* disable default styling */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.title-container {
+  /* background-color: pink; */
+  /* width: 800px; */
+  height: 100px;
+
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#p5-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  /* background-color: bisque; */
+  height: 50px;
+
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.flexbox-container {
+  /* background-color: darkseagreen; */
+  height: 500px;
+
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  background-color: rgb(189, 231, 238);
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+
+
+#special-box:hover {
+  background-color: rgb(101, 178, 255);
+}
