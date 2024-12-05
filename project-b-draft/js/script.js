@@ -18,8 +18,8 @@ function setup() {
       y: random(height),
       size: random(30, 60),
       opacity: random(50, 100),
-      xSpeed: random(-0.5, 0.5), // Horizontal speed
-      ySpeed: random(-0.5, 0.5)  // Vertical speed
+      xSpeed: random(-0.5, 0.5),
+      ySpeed: random(-0.5, 0.5)
     };
     ellipses.push(ellipseData); // Add the ellipse data to the array
   }
@@ -64,9 +64,9 @@ function generateEllipses(stage) {
   for (let i = 0; i < stage.count; i++) {
     let x = random(stage.bounds.x, stage.bounds.x + stage.bounds.w);
     let y = random(stage.bounds.y, stage.bounds.y + stage.bounds.h);
-    let size = random(50, 100); // Random ellipse size
-    let xSpeed = random(-0.5, 0.5); // Small horizontal movement speed
-    let ySpeed = random(-0.5, 0.5); // Small vertical movement speed
+    let size = random(50, 100);
+    let xSpeed = random(-0.5, 0.5);
+    let ySpeed = random(-0.5, 0.5);
 
     stage.ellipses.push({ x, y, size, xSpeed, ySpeed });
   }
@@ -74,14 +74,14 @@ function generateEllipses(stage) {
 
 function drawEllipses(ellipses, bounds) {
   noStroke();
-  fill(255, 50); // Light translucent color for fog
+  fill(255, 50);
 
   // Update and draw each stage ellipse
   for (let e of ellipses) {
     e.x += e.xSpeed; // Update x position
     e.y += e.ySpeed; // Update y position
 
-    // Boundary check for stage ellipses (keep them within the stage bounds)
+    // Boundary check for stage ellipses
     if (e.x - e.size / 2 < bounds.x || e.x + e.size / 2 > bounds.x + bounds.w) {
       e.xSpeed *= -1; // Reverse direction horizontally
     }
@@ -107,7 +107,7 @@ function updateStageVisibility() {
       if (isVisible) {
         stageEllipses[stageIndex].visible = true;
         if (stageEllipses[stageIndex].ellipses.length === 0) {
-          generateEllipses(stageEllipses[stageIndex]); // Generate ellipses if not already done
+          generateEllipses(stageEllipses[stageIndex]);
         }
       }
     }
@@ -131,7 +131,7 @@ if (submitAnswerBtn) {
     const answerInput = document.getElementById("q1answer");
     const answerInput2 = document.getElementById("q2answer");
     const answerInput3 = document.getElementById("q3answer");
-    const answerInput4 = document.getElementById("q4answer"); // Adjust for other stages
+    const answerInput4 = document.getElementById("q4answer");
 
     if (
       (answerInput && answerInput.value.trim().length > 0) ||
