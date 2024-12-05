@@ -39,6 +39,9 @@ let ends = [
 ];
 
 let textPoints = [
+    { x: 1, y: 7, text: "There is no 'right' or 'wrong' choice" },
+    { x: 1, y: 9, text: "There's just YOUR choice" },
+
     { x: 3, y: 8, text: "What would you do if everything you've\never believed was actually a lie?" },
     { x: 5, y: 7, text: "Start questioning\neverything" },
     { x: 6, y: 8, text: "Ignore it and\nkeep moving" },
