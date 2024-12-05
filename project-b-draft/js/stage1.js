@@ -77,7 +77,7 @@ let textPoints = [
     { x: 0, y: 16, text: "It would feel\nlike my life is\npredetermined" },
 
     { x: 9, y: 15, text: "If you could relive\na moment from\nyour past to change\nit, would you?" },
-    { x: 10, y: 14, text: "I would relive it\ndto change my future" },
+    { x: 10, y: 14, text: "I would relive it\nto change my future" },
     { x: 10, y: 16, text: "I would let it\ngo, the past doesn't\ndefine me" }
 ];
 
