@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <title>CCLab Project B Draft</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stage2.css">
+
+    <script src="lib/p5.js"></script>
+    <script src="lib/p5.sound.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="window">
+            <div class="title-bar">
+                <div class="window-controls">
+                    <button class="window-btn" id="close-btn">X</button>
+                    <button class="window-btn" id="minimize-btn">-</button>
+                    <button class="window-btn" id="maximize-btn">□</button>
+                </div>
+                <span class="window-title">Stage 2: Adventure in the unknown</span>
+            </div>
+
+            <!-- Canvas container with choices on top -->
+            <div class="video-window">
+                <div id="p5-canvas-container"></div>
+            </div>
+
+            <div id="message-container">
+                <p id="message-text">The gate is locked, but the key lies in the unknown. Do you take the familiar path,
+                    or search for the key in the darkness?</p>
+            </div>
+
+            <div id="choices-container">
+                <button id="choice-1" class="choice-button">Choice 1</button>
+                <button id="choice-2" class="choice-button">Choice 2</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stage2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: windowWidth;
+}
+
+.title-container {
+  height: 100px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.boxes-container1,
+.boxes-container2 {
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.boxes-container1 {
+  margin: 0px 270px;
+  justify-content: space-between;
+}
+
+.boxes-container2 {
+  justify-content: center;
+}
+
+.link {
+  /* border: 2px dashed black; */
+  font-size: larger;
+  width: 200px;
+  height: 200px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Initially hide some links (stage 2, 3, 4) */
+#link2,
+#link3,
+#link4 {
+  display: none;
+  border: 2px dashed black;
+  opacity: 0.75;
+}
+
+#link1 {
+  border: 2px dashed black;
+  opacity: 0.75;
+}
+
+#p5-canvas-container {
+  position: absolute;
+  z-index: -1;
+}
+
+#clearStorageButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #444;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+}

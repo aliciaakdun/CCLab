@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <title>CCLab Project B Draft</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stage1.css">
+
+    <script src="lib/p5.js"></script>
+    <script src="lib/p5.sound.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="window">
+            <!-- Title Bar with Close/Minimize/Maximize buttons -->
+            <div class="title-bar">
+                <div class="window-controls">
+                    <button class="window-btn" id="close-btn">X</button>
+                    <button class="window-btn" id="minimize-btn">-</button>
+                    <button class="window-btn" id="maximize-btn">□</button>
+                </div>
+                <span class="window-title">Stage 1: Maze of self reflection</span>
+            </div>
+
+            <!-- Maze Container -->
+            <div class="maze-window">
+                <div id="p5-canvas-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (pop-up) for Close Confirmation -->
+    <div id="close-modal" class="close-modal">
+        <div class="modal-content">
+            <h3>Why are you trying to close my game?</h3>
+            <button id="confirm-close" class="modal-btn">I want to leave</button>
+            <button id="cancel-close" class="modal-btn">Nevermind</button>
+        </div>
+    </div>
+    <div id="final-close-modal" class="close-modal">
+        <div class="modal-content">
+            <h3>Stop it that's rude</h3>
+            <button id="confirm-final-close" class="modal-btn">I don't care</button>
+            <button id="cancel-final-close" class="modal-btn">Fine</button>
+        </div>
+    </div>
+
+    <!-- Camera Modal for displaying the user's camera feed -->
+    <div id="camera-modal" class="close-modal">
+        <div class="modal-content">
+            <h3>Game ended you're rude. Reflect.</h3>
+            <video id="user-video" autoplay></video>
+            <button id="close-camera" class="modal-btn">I'm sorry</button>
+        </div>
+    </div>
+
+    <!-- Pop-up Modal Structure -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="typedMessage"></p>
+        </div>
+    </div>
+
+
+
+    <script src="js/stage1.js"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,124 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.window {
+    width: 700px;
+    height: 700px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow to create depth */
+    position: absolute;
+    overflow: hidden;
+    /* Hide anything that overflows out of the window */
+}
+
+.title-bar {
+    height: 40px;
+    background-color: #3e3e3e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.window-title {
+    font-size: 16px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.window-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: #bbb;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.window-btn:hover {
+    background-color: #888;
+}
+
+/* Container for the video */
+.video-window {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Prevent anything from overflowing */
+    position: relative;
+}
+
+canvas {
+    /* background-color: #cfcfcf; */
+    width: 100%;
+    height: 100%;
+}
+
+#message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+#choices-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.choice-button:hover {
+    background-color: #666;
+}
