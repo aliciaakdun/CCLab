@@ -1,13 +1,13 @@
 let stageEllipses = [
-  { visible: true, count: 150, bounds: { x: 250, y: 150, w: 250, h: 250 }, ellipses: [] },
-  { visible: false, count: 150, bounds: { x: 600, y: 450, w: 250, h: 250 }, ellipses: [] },
-  { visible: false, count: 150, bounds: { x: 975, y: 150, w: 250, h: 250 }, ellipses: [] },
+  { visible: true, count: 150, bounds: { x: window.innerWidth * 0.12, y: window.innerHeight * 0.2, w: 250, h: 250 }, ellipses: [] },
+  { visible: false, count: 150, bounds: { x: window.innerWidth * 0.4, y: window.innerHeight * 0.6, w: 250, h: 250 }, ellipses: [] },
+  { visible: false, count: 150, bounds: { x: window.innerWidth * 0.68, y: window.innerHeight * 0.2, w: 250, h: 250 }, ellipses: [] },
 ];
 
 let ellipses = [];
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(window.innerWidth, window.innerHeight);
   canvas.parent("p5-canvas-container");
 
   // Generate initial random ellipses in the main area
@@ -128,4 +128,19 @@ if (localStorage.getItem("stage3Completed")) {
     localStorage.clear();
     alert("Reload the page to start over");
   });
+}
+
+// Adjust positions dynamically on window resize
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+
+  // Update bounds for each stage based on new window size
+  stageEllipses[0].bounds = { x: window.innerWidth * 0.12, y: window.innerHeight * 0.2, w: 250, h: 250 };
+  stageEllipses[1].bounds = { x: window.innerWidth * 0.4, y: window.innerHeight * 0.6, w: 250, h: 250 };
+  stageEllipses[2].bounds = { x: window.innerWidth * 0.68, y: window.innerHeight * 0.2, w: 250, h: 250 };
+
+  // Regenerate ellipses after resizing to adapt to the new bounds
+  for (let stage of stageEllipses) {
+    generateEllipses(stage);
+  }
 }
